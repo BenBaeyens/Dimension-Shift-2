@@ -15,7 +15,7 @@ public class DimentionChecker : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         dimentionShift.DimentionPosition(other.gameObject);
-        if(other.gameObject.CompareTag("MovingPlatform")){
+        if(other.gameObject.CompareTag("MovingPlatform") && dimentionShift.currently3D){
             transform.parent.SetParent(other.transform.parent.parent);
         }
     }

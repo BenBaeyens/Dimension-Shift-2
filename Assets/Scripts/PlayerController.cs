@@ -33,13 +33,15 @@ public class PlayerController : MonoBehaviour
             player2D.GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce);
             player3D.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce);
         }
+    
     }
 
     private void FixedUpdate() {
-        if(dimentionShift.currently3D)
-            transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed / 5, 0f, Input.GetAxis("Vertical") * speed / 5)); // move the player
-        else
-            transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed / 5, 0f, 0f));
+        if(dimentionShift.currently3D){
+            transform.position += (new Vector3(Input.GetAxis("Horizontal") * speed / 5, 0f, Input.GetAxis("Vertical") * speed / 5)); // move the player
+            player2D.transform.position = player3D.transform.position;
+        }else
+            transform.position += (new Vector3(Input.GetAxis("Horizontal") * speed / 5, 0f, 0f));
     }
 
     bool isGrounded(){ // Check if the player is on the ground

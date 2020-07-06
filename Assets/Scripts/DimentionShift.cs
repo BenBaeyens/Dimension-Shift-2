@@ -14,8 +14,8 @@ public class DimentionShift : MonoBehaviour
     Camera camera;
 
 
-    List<GameObject> Objects3D;
-    List<GameObject> Objects2D;
+    List<GameObject> Objects3D = new List<GameObject>();
+    List<GameObject> Objects2D = new List<GameObject>();
 
     [HideInInspector] public bool currently3D = true;
 
@@ -34,9 +34,6 @@ public class DimentionShift : MonoBehaviour
 		DontDestroyOnLoad(this);
 
         camera = Camera.main;
-
-        Objects3D = new List<GameObject>();
-        Objects2D = new List<GameObject>();
 
         foreach (GameObject obj in SwappableObjects)
         {

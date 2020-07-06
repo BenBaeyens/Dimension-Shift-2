@@ -5,7 +5,7 @@ public class RotatingPlatform : MonoBehaviour
 {
     public float rotationSpeedInSeconds = 1f; // The speed at which the platform rotates
 
-    [Tooltip("The time the platform pauses before moving on to it's next action, in seconds.")]
+    [Tooltip("The time the platform pauses before moving on to its next action, in seconds.")]
     public float pauseTime = 2f; // The time the platform pauses before moving on to it's next action
     public float rotationAngle = 180f; // How many degrees the platform should rotate in the given direction
 
@@ -45,7 +45,7 @@ public class RotatingPlatform : MonoBehaviour
                     PlayerController pc = GetComponentInChildren<PlayerController>();
                     if(pc != null){
                         Debug.Log("FOUND PLAYERCONTROLLER");
-                        pc.transform.Rotate(0f, degreesThisFrame * -currentRotationDirection, 0f);
+                        pc.transform.Rotate(0f, -degreesThisFrame * -currentRotationDirection, 0f);
                     }
                     transform.Rotate(0f, degreesThisFrame * currentRotationDirection, 0f);
                     break;
